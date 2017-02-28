@@ -1,37 +1,35 @@
-## Welcome to GitHub Pages
+# django-restmodels
 
-You can use the [editor on GitHub](https://github.com/boooka/RestModels/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Расширение реализующее REST API для доступа к моделям Django проекта
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Описание
+Расширение распознает все существующие модели, подключённые в проекте
+приложений и публикует REST интерфейс для внешнего взаимодействия
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+API позволяет:
++ запрашивать объекты по нескольким полям (логика - AND) с возможностью
+сортировки (ORDER BY), ограничения кол-ва (LIMIT) (метод GET)
++ создавать новые объекты (метод POST)
++ удалять объекты по первичному ключу (метод DELETE)
++ обновлять объекты по первичному ключу (метод PUT)
+
+Данные клиенту возвращаются в формате JSON
+
+### Требования
+python
+
+### Установка
+```markdown
+python setup.py install
+
+### Примеры
+GET запроса:
 
 ```markdown
-Syntax highlighted code block
+curl --dump-header - http://localhost:8000/api/v1/logistics/pek/26363/?cache=false&volume=1.41&weight=118.07&isPickUp=false&isDelivery=true&urgently=false
 
-# Header 1
-## Header 2
-### Header 3
+POST запроса:
+```markdown
+curl --dump-header -  -H "Content-Type: application/json; charset=utf-8" -X POST --data '{"name": "new_group2"}' http://localhost:8000/api/v1/group/
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/boooka/RestModels/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

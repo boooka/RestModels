@@ -4,7 +4,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(
-    name='RestModels',
+    name='restmodels',
     version='1.0.0',
     author='SergeyDuka',
     author_email='sergey.duka@gmail.com',
