@@ -20,8 +20,27 @@ API позволяет:
 python
 
 ### Установка
+Установить расширение:
 ```
 python setup.py install
+```
+В settings.py проекта добавить:
+```
+INSTALLED_APPS = [
+...
+    'restmodels',
+]
+```
+В urls.py
+```
+from django.conf.urls include
+from restmodels.api import v1_api
+
+
+urlpatterns = [
+...
+    url(r'^api/', include(v1_api.urls)),
+]
 ```
 
 ### Примеры
