@@ -20,16 +20,17 @@ API позволяет:
 python
 
 ### Установка
-```markdown
+```
 python setup.py install
+```
 
 ### Примеры
-GET запроса:
+* GET запроса:
 
-```markdown
+```
 curl --dump-header - http://localhost:8000/api/v1/logistics/pek/26363/?cache=false&volume=1.41&weight=118.07&isPickUp=false&isDelivery=true&urgently=false
-
-POST запроса:
-```markdown
+```
+* POST запроса:
+```
 curl --dump-header -  -H "Content-Type: application/json; charset=utf-8" -X POST --data '{"name": "new_group2"}' http://localhost:8000/api/v1/group/
-
+```
